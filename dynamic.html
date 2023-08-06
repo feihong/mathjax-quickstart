@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dynamic AsciiMath setup</title>
+<script async>
+window.MathJax = {
+  startup: {
+    typeset: false,
+  },
+  loader: {
+    load: ['input/asciimath', 'output/chtml', 'ui/menu']
+  },
+  asciimath: {
+    delimiters: [['`', '`']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+(function() {
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+  script.async = true;
+  document.head.appendChild(script);
+})();
+</script>
+</head>
+<body>
+<h1>Dynamic AsciiMath setup</h1>
+<form onsubmit="onSubmit(event)">
+  <input id="input"> Enter AsciiMath and hit Enter
+</form>
+<div id="results"></div>
+<script>
+function onSubmit(evt) {
+  evt.preventDefault()
+  const input = document.querySelector('#input')
+
+  const results = document.querySelector('#results')
+  const para = document.createElement('p')
+  para.innerText = '`' + input.value + '`'
+  results.appendChild(para)
+  MathJax.typeset([para])
+
+  input.focus()
+}
+</script>
+</body>
+</html>

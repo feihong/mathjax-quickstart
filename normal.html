@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Normal AsciiMath setup</title>
+  <script>
+  MathJax = {
+    loader: {
+      load: ['input/asciimath', 'output/chtml', 'ui/menu']
+    },
+    asciimath: {
+      delimiters: [['`', '`']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
+<h1>Normal AsciiMath setup</h1>
+<p>This should render: `y=k/x`</p>
+<p>Another example: `sum_(i=1)^n i^3 = ((n(n+1))/2)^2`</p>
+</body>
+</html>
