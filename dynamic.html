@@ -6,26 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dynamic AsciiMath setup</title>
 <script async>
-window.MathJax = {
-  startup: {
-    typeset: false,
-  },
-  loader: {
-    load: ['input/asciimath', 'output/chtml', 'ui/menu']
-  },
-  asciimath: {
-    delimiters: [['`', '`']]
-  },
-  svg: {
-    fontCache: 'global'
-  }
-};
-(function() {
+if (window.MathJax === undefined) {
+  window.MathJax = {
+    startup: {
+      typeset: false,
+    },
+    loader: {
+      load: ['input/asciimath', 'output/chtml', 'ui/menu']
+    },
+    asciimath: {
+      delimiters: [['`', '`']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+
   const script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
   script.async = true;
   document.head.appendChild(script);
-})();
+}
 </script>
 </head>
 <body>
