@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AsciiMath to LaTeX</title>
+  <script src="ASCIIMathTeXImg.js"></script>
+  <script>
+  window.MathJax = {
+    startup: {
+      typeset: false,
+    },
+    loader: {
+      load: ['output/chtml', 'ui/menu']
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
+<h1>AsciiMath to LaTeX</h1>
+<script>
+const inputs = [
+  'y=k/x',
+  'root(3)(125)',
+  'sum_(i=1)^n i^3 = ((n(n+1))/2)^2',
+]
+for (const input of inputs) {
+  const output = AMTparseAMtoTeX(input)
+  document.write(`<p> \\( ${output} \\) </p>`)
+}
+</script>
+<button onclick="MathJax.typeset([document.body])">Render</button>
+</body>
+</html>
